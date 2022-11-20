@@ -8,8 +8,31 @@
 
 html {
     font-size: 62.5%; /* Stands for 10px. 1rem — 10px */
+
+    @include respond(tab-land) { // width < 1200?
+        font-size: 56.25%; // 1rem = 9px / so we divide 9 by 16 = 56.25% 
+    }
+
+    @include respond(tab-port) {// width < 900?
+        font-size: 50%; // 1 rem = 8px / so we divide 8 by 16 = 50% / why 16 because default browser font size is 16px
+    }
+
+    @include respond(big-desktop) {
+        font-size: 75%; // 1rem = 12px / so we divide 12 by 16 = 56.25% 
+    }
 }
+    
 
 body {
     box-sizing: border-box;
+    padding: 3rem;
+
+    @include respond(tab-port) {
+        padding: 0;
+    }
+}
+
+::selection {
+    background-color: $primary-color;
+    color: $color-white;
 }
